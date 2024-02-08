@@ -2,15 +2,20 @@
 
 Basic Banking system to test Account creation, deletion, deposit and withdrawal scenarios.
 
-Scenario: Create new Account with valid data
-	Given Account Initial Balance is $20
-	And Account name is "Rajesh Mittal"
-	And Address is "Ahmedabad, Gujarat"
+Scenario Outline: Create new Account with valid data
+	Given Account Initial Balance is $<Amount>
+	And Account name is <Name>
+	And Address is <Address>
 	When POST endpoint triggered to create new account with above details
 	Then Verify the response code is 201
 	And Verify no error is returned
 	And Verify the success message "Account X123 created successfully"
 	And Verify the account details are correctly returned in the JSON response
+	Examples: 
+	| Amount | Name    | Address             |
+	| 1000   | Ajay    | Bangalore,Karnataka |
+	| 1500   | Ashish  | Chennai, Tamilnadu  |
+	| 1300   | Chandni | Cochin, Kerala      |
 
 Scenario: Delete an Account with valid data
 	Given Account number is "ADD4545455"

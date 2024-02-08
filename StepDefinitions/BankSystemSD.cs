@@ -24,13 +24,13 @@ namespace CodeAssignment_QA_AjayAL.StepDefinitions
              apiRequestDetails.InitialBalance = initBalance;
         }
 
-        [Given(@"Account name is ""([^""]*)""")]
+        [Given(@"Account name is (.*)")]
         public void SetAccountNameValue(string accName)
         {
             apiRequestDetails.AccountName = accName;
         }
 
-        [Given(@"Address is ""([^""]*)""")]
+        [Given(@"Address is (.*)")]
         public void SetAddressValue(string address)
         {
             apiRequestDetails.Address = address;
